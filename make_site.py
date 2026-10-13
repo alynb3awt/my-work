@@ -1,0 +1,2 @@
+﻿# site generator
+print('ready')

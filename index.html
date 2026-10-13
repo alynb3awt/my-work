@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>شركة الأفق المتقدمة | تقنية تصنع المستقبل</title>
+  <meta name="description" content="شركة الأفق المتقدمة - شركة مساهمة مبسطة رائدة في تقنية المعلومات وتطوير البرمجيات والاستشارات الإدارية في المملكة العربية السعودية." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- TOP TOAST NOTIFICATION (Apple Dynamic Island Style) -->
+  <div class="top-toast" id="topToast">
+    <div class="toast-capsule">
+      <span class="toast-sparkle">✨</span>
+      <span class="toast-message" id="toastMessage">هذا عمل مشروع فقط ما تحتاج تشتري 😉</span>
+      <button class="toast-close" onclick="hideTopToast()">✕</button>
+    </div>
+  </div>
+
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <div class="nav-logo">
+        <svg class="logo-icon" viewBox="0 0 40 40" fill="none">
+          <circle cx="20" cy="20" r="18" stroke="url(#logoGrad)" stroke-width="2"/>
+          <path d="M20 8 L28 16 L24 16 L24 28 L16 28 L16 16 L12 16 Z" fill="url(#logoGrad)"/>
+          <defs>
+            <linearGradient id="logoGrad" x1="0" y1="0" x2="40" y2="40" gradientUnits="userSpaceOnUse">
+              <stop offset="0%" stop-color="#4F9EFF"/>
+              <stop offset="100%" stop-color="#A855F7"/>
+            </linearGradient>
+          </defs>
+        </svg>
+        <span class="logo-text">الأفق المتقدمة</span>
+      </div>
+      <div class="nav-links">
+        <a href="#products" class="nav-link">منتجاتنا</a>
+        <a href="#about" class="nav-link">عن الشركة</a>
+        <a href="#shareholders" class="nav-link">المساهمون</a>
+        <a href="#governance" class="nav-link">الحوكمة</a>
+        <a href="#contact" class="nav-link">تواصل معنا</a>
+      </div>
+      <button class="nav-cta" onclick="scrollToProducts()">تسوق الآن</button>
+      <button class="hamburger" id="hamburger" aria-label="القائمة">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="#products">منتجاتنا</a>
+      <a href="#about">عن الشركة</a>
+      <a href="#shareholders">المساهمون</a>
+      <a href="#governance">الحوكمة</a>
+      <a href="#contact">تواصل معنا</a>
+    </div>
+  </nav>
+
+  <section class="hero" id="hero">
+    <div class="hero-bg">
+      <img src="hero_bg.jpg" alt="خلفية" class="hero-bg-img" />
+      <div class="hero-overlay"></div>
+    </div>
+    <div class="hero-content">
+      <div class="hero-badge">✦ جديد لعام 2025</div>
+      <h1 class="hero-title">
+        <span class="title-line">مستقبل التقنية</span>
+        <span class="title-line gradient-text">في يدك الآن</span>
+      </h1>
+      <p class="hero-subtitle">شركة الأفق المتقدمة — نصنع أدوات استثنائية لأشخاص استثنائيين. تقنية بلا حدود، إبداع بلا قيود.</p>
+      <div class="hero-actions">
+        <button class="btn-primary" onclick="scrollToProducts()">اكتشف المنتجات</button>
+        <a href="#about" class="btn-ghost">تعرف علينا ←</a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat"><span class="stat-num">99</span><span class="stat-label">سنة من الطموح</span></div>
+        <div class="stat-divider"></div>
+        <div class="stat"><span class="stat-num">5</span><span class="stat-label">شركاء ومساهمون</span></div>
+        <div class="stat-divider"></div>
+        <div class="stat"><span class="stat-num">1M</span><span class="stat-label">ريال رأس المال</span></div>
+      </div>
+    </div>
+    <div class="hero-scroll-indicator">
+      <div class="scroll-line"></div>
+      <span>اسحب للأسفل</span>
+    </div>
+  </section>
+
+  <section class="product-highlight">
+    <div class="highlight-grid">
+      <div class="highlight-card card-large">
+        <div class="card-bg card-bg-blue"></div>
+        <div class="card-content">
+          <span class="card-badge">جديد</span>
+          <h2>أفق بوك برو</h2>
+          <p>لابتوب المستقبل. قوة لا تُضاهى.</p>
+          <div class="card-links">
+            <button class="card-link-primary" onclick="openProduct('laptop')">تعرف عليه ←</button>
+            <button class="card-link-buy" onclick="buyProduct('أفق بوك برو', '4,999')">اشترِ الآن</button>
+          </div>
+          <div class="card-price">من 4,999 ريال</div>
+        </div>
+        <div class="card-image-wrap">
+          <img src="product_laptop.jpg" alt="أفق بوك برو" class="card-image" />
+        </div>
+      </div>
+      <div class="highlight-card card-small">
+        <div class="card-bg card-bg-purple"></div>
+        <div class="card-content">
+          <span class="card-badge">الأكثر مبيعاً</span>
+          <h2>أفق فون 15</h2>
+          <p>جوال يعيد تعريف الذكاء.</p>
+          <div class="card-links">
+            <button class="card-link-primary" onclick="openProduct('phone')">تعرف عليه ←</button>
+            <button class="card-link-buy" onclick="buyProduct('أفق فون 15', '3,499')">اشترِ الآن</button>
+          </div>
+          <div class="card-price">من 3,499 ريال</div>
+        </div>
+        <div class="card-image-wrap">
+          <img src="product_phone.jpg" alt="أفق فون 15" class="card-image" />
+        </div>
+      </div>
+    </div>
+    <div class="highlight-grid highlight-grid-2">
+      <div class="highlight-card card-small">
+        <div class="card-bg card-bg-teal"></div>
+        <div class="card-content">
+          <h2>أفق بودز</h2>
+          <p>صوت نقي. راحة مطلقة.</p>
+          <div class="card-links">
+            <button class="card-link-primary" onclick="openProduct('earbuds')">تعرف عليه ←</button>
+            <button class="card-link-buy" onclick="buyProduct('أفق بودز', '699')">اشترِ الآن</button>
+          </div>
+          <div class="card-price">من 699 ريال</div>
+        </div>
+        <div class="card-image-wrap">
+          <img src="product_earbuds.jpg" alt="أفق بودز" class="card-image" />
+        </div>
+      </div>
+      <div class="highlight-card card-small">
+        <div class="card-bg card-bg-dark"></div>
+        <div class="card-content">
+          <h2>أفق ووتش</h2>
+          <p>صحتك. حياتك. كل شيء في معصمك.</p>
+          <div class="card-links">
+            <button class="card-link-primary" onclick="openProduct('watch')">تعرف عليه ←</button>
+            <button class="card-link-buy" onclick="buyProduct('أفق ووتش', '1,299')">اشترِ الآن</button>
+          </div>
+          <div class="card-price">من 1,299 ريال</div>
+        </div>
+        <div class="card-image-wrap">
+          <img src="product_watch.jpg" alt="أفق ووتش" class="card-image" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="products-section" id="products">
+    <div class="section-header">
+      <div class="section-tag">منتجاتنا</div>
+      <h2 class="section-title">تقنية تصنع <span class="gradient-text">الفارق</span></h2>
+      <p class="section-sub">كل منتج صُمِّم بعناية فائقة لتقديم تجربة لا مثيل لها</p>
+    </div>
+    <div class="products-grid">
+      <div class="product-card">
+        <div class="product-glow glow-blue"></div>
+        <div class="product-image-wrap">
+          <img src="product_laptop.jpg" alt="أفق بوك برو" class="product-img" />
+        </div>
+        <div class="product-info">
+          <div class="product-tag">لابتوب</div>
+          <h3 class="product-name">أفق بوك برو</h3>
+          <p class="product-desc">معالج الأفق M3 — 18 ساعة بطارية — شاشة Liquid Retina XDR 4K — 32GB RAM — 1TB SSD</p>
+          <div class="product-specs">
+            <span class="spec">✦ معالج M3</span>
+            <span class="spec">✦ 18 ساعة</span>
+            <span class="spec">✦ 1TB SSD</span>
+          </div>
+          <div class="product-price-row">
+            <span class="product-price">4,999 ريال</span>
+            <span class="product-old-price">6,499 ريال</span>
+          </div>
+          <div class="product-actions">
+            <button class="btn-buy" id="buy-laptop" onclick="buyProduct('أفق بوك برو', '4,999')">
+              <span>🛒</span> اشترِ الآن
+            </button>
+            <button class="btn-learn" onclick="openProduct('laptop')">تعرف عليه</button>
+          </div>
+        </div>
+      </div>
+      <div class="product-card">
+        <div class="product-glow glow-purple"></div>
+        <div class="product-image-wrap">
+          <img src="product_phone.jpg" alt="أفق فون 15" class="product-img" />
+        </div>
+        <div class="product-info">
+          <div class="product-tag">جوال ذكي</div>
+          <h3 class="product-name">أفق فون 15 تيتانيوم</h3>
+          <p class="product-desc">شاشة OLED 6.7 بوصة — كاميرا 200MP — 5G — بطارية 5000mAh — تيتانيوم فاخر</p>
+          <div class="product-specs">
+            <span class="spec">✦ شاشة 6.7 OLED</span>
+            <span class="spec">✦ 200MP</span>
+            <span class="spec">✦ 5G</span>
+          </div>
+          <div class="product-price-row">
+            <span class="product-price">3,499 ريال</span>
+            <span class="product-old-price">4,299 ريال</span>
+          </div>
+          <div class="product-actions">
+            <button class="btn-buy" id="buy-phone" onclick="buyProduct('أفق فون 15 تيتانيوم', '3,499')">
+              <span>🛒</span> اشترِ الآن
+            </button>
+            <button class="btn-learn" onclick="openProduct('phone')">تعرف عليه</button>
+          </div>
+        </div>
+      </div>
+      <div class="product-card">
+        <div class="product-glow glow-teal"></div>
+        <div class="product-image-wrap">
+          <img src="product_earbuds.jpg" alt="أفق بودز" class="product-img" />
+        </div>
+        <div class="product-info">
+          <div class="product-tag">سماعات</div>
+          <h3 class="product-name">أفق بودز برو</h3>
+          <p class="product-desc">إلغاء ضوضاء نشط — Spatial Audio 3D — 36 ساعة بطارية — مقاومة IPX5</p>
+          <div class="product-specs">
+            <span class="spec">✦ إلغاء ضوضاء</span>
+            <span class="spec">✦ 36 ساعة</span>
+            <span class="spec">✦ IPX5</span>
+          </div>
+          <div class="product-price-row">
+            <span class="product-price">699 ريال</span>
+            <span class="product-old-price">899 ريال</span>
+          </div>
+          <div class="product-actions">
+            <button class="btn-buy" id="buy-earbuds" onclick="buyProduct('أفق بودز برو', '699')">
+              <span>🛒</span> اشترِ الآن
+            </button>
+            <button class="btn-learn" onclick="openProduct('earbuds')">تعرف عليه</button>
+          </div>
+        </div>
+      </div>
+      <div class="product-card">
+        <div class="product-glow glow-gold"></div>
+        <div class="product-image-wrap">
+          <img src="product_watch.jpg" alt="أفق ووتش" class="product-img" />
+        </div>
+        <div class="product-info">
+          <div class="product-tag">ساعة ذكية</div>
+          <h3 class="product-name">أفق ووتش Ultra</h3>
+          <p class="product-desc">AMOLED Always-On — مراقبة صحية — GPS مدمج — مقاومة 100m — تيتانيوم</p>
+          <div class="product-specs">
+            <span class="spec">✦ AMOLED</span>
+            <span class="spec">✦ GPS مدمج</span>
+            <span class="spec">✦ 100m مقاومة</span>
+          </div>
+          <div class="product-price-row">
+            <span class="product-price">1,299 ريال</span>
+            <span class="product-old-price">1,699 ريال</span>
+          </div>
+          <div class="product-actions">
+            <button class="btn-buy" id="buy-watch" onclick="buyProduct('أفق ووتش Ultra', '1,299')">
+              <span>🛒</span> اشترِ الآن
+            </button>
+            <button class="btn-learn" onclick="openProduct('watch')">تعرف عليه</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="about-section" id="about">
+    <div class="about-bg">
+      <img src="about_section.jpg" alt="عن الشركة" class="about-bg-img" />
+      <div class="about-overlay"></div>
+    </div>
+    <div class="about-content">
+      <div class="about-text">
+        <div class="section-tag light-tag">عن الشركة</div>
+        <h2 class="about-title">شركة الأفق المتقدمة</h2>
+        <p class="about-sub">(شركة مساهمة مبسطة)</p>
+        <p class="about-desc">تأسست وفقًا لأحكام نظام الشركات الصادر بالمرسوم الملكي رقم (م/132) بتاريخ 01/12/1443هـ، ومقرها الرياض، المملكة العربية السعودية.</p>
+        <div class="about-items">
+          <div class="about-item">
+            <div class="about-icon">💻</div>
+            <div><strong>تقنية المعلومات وتطوير البرمجيات</strong><p>حلول برمجية متطورة لعالم رقمي متسارع</p></div>
+          </div>
+          <div class="about-item">
+            <div class="about-icon">🌐</div>
+            <div><strong>التجارة العامة والاستيراد والتصدير</strong><p>نقل المنتجات عبر الحدود بكل سلاسة</p></div>
+          </div>
+          <div class="about-item">
+            <div class="about-icon">📊</div>
+            <div><strong>الاستشارات الإدارية والفنية</strong><p>خبرة راسخة لقرارات أذكى وأسرع</p></div>
+          </div>
+        </div>
+        <div class="about-highlights">
+          <div class="highlight"><span class="hl-num">99 سنة</span><span class="hl-label">مدة الشركة</span></div>
+          <div class="highlight"><span class="hl-num">الرياض</span><span class="hl-label">المقر الرئيسي</span></div>
+          <div class="highlight"><span class="hl-num">5M ريال</span><span class="hl-label">رأس المال المصرح</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="shareholders-section" id="shareholders">
+    <div class="section-header">
+      <div class="section-tag">الباب الرابع: الشركاء والمساهمون</div>
+      <h2 class="section-title">شركاء <span class="gradient-text">النجاح ورأس المال</span></h2>
+      <p class="section-sub">يتكون مساهمو شركة الأفق المتقدمة من الشركاء المؤسسين المكتتبين في كامل رأس المال المصدر البالغ 1,000,000 ريال (100,000 سهم)</p>
+    </div>
+    <div class="shareholders-grid-5">
+      <div class="shareholder-card card-featured">
+        <div class="sh-avatar sh-avatar-1">م</div>
+        <h3 class="sh-name">محمد الحربي</h3>
+        <div class="sh-role">رئيس الشركة</div>
+        <div class="sh-bar-wrap"><div class="sh-bar sh-bar-1" style="width:30%"></div></div>
+        <div class="sh-stats">
+          <div class="sh-stat"><span class="sh-stat-val">30,000</span><span class="sh-stat-key">سهم / صوت</span></div>
+          <div class="sh-stat"><span class="sh-stat-val">300,000</span><span class="sh-stat-key">ريال</span></div>
+          <div class="sh-stat"><span class="sh-stat-val pct-big">30%</span><span class="sh-stat-key">ملكية</span></div>
+        </div>
+      </div>
+      <div class="shareholder-card">
+        <div class="sh-avatar sh-avatar-2">ع</div>
+        <h3 class="sh-name">عمر محمد</h3>
+        <div class="sh-role">شريك ومساهم</div>
+        <div class="sh-bar-wrap"><div class="sh-bar sh-bar-2" style="width:25%"></div></div>
+        <div class="sh-stats">
+          <div class="sh-stat"><span class="sh-stat-val">25,000</span><span class="sh-stat-key">سهم / صوت</span></div>
+          <div class="sh-stat"><span class="sh-stat-val">250,000</span><span class="sh-stat-key">ريال</span></div>
+          <div class="sh-stat"><span class="sh-stat-val pct-big">25%</span><span class="sh-stat-key">ملكية</span></div>
+        </div>
+      </div>
+      <div class="shareholder-card">
+        <div class="sh-avatar sh-avatar-3">أ</div>
+        <h3 class="sh-name">أيمن الحازمي</h3>
+        <div class="sh-role">شريك ومساهم</div>
+        <div class="sh-bar-wrap"><div class="sh-bar sh-bar-3" style="width:20%"></div></div>
+        <div class="sh-stats">
+          <div class="sh-stat"><span class="sh-stat-val">20,000</span><span class="sh-stat-key">سهم / صوت</span></div>
+          <div class="sh-stat"><span class="sh-stat-val">200,000</span><span class="sh-stat-key">ريال</span></div>
+          <div class="sh-stat"><span class="sh-stat-val pct-big">20%</span><span class="sh-stat-key">ملكية</span></div>
+        </div>
+      </div>
+      <div class="shareholder-card">
+        <div class="sh-avatar sh-avatar-4">ع</div>
+        <h3 class="sh-name">عمر السهلي</h3>
+        <div class="sh-role">شريك ومساهم</div>
+        <div class="sh-bar-wrap"><div class="sh-bar sh-bar-4" style="width:15%"></div></div>
+        <div class="sh-stats">
+          <div class="sh-stat"><span class="sh-stat-val">15,000</span><span class="sh-stat-key">سهم / صوت</span></div>
+          <div class="sh-stat"><span class="sh-stat-val">150,000</span><span class="sh-stat-key">ريال</span></div>
+          <div class="sh-stat"><span class="sh-stat-val pct-big">15%</span><span class="sh-stat-key">ملكية</span></div>
+        </div>
+      </div>
+      <div class="shareholder-card">
+        <div class="sh-avatar sh-avatar-5">ت</div>
+        <h3 class="sh-name">تميم</h3>
+        <div class="sh-role">شريك ومساهم</div>
+        <div class="sh-bar-wrap"><div class="sh-bar sh-bar-5" style="width:10%"></div></div>
+        <div class="sh-stats">
+          <div class="sh-stat"><span class="sh-stat-val">10,000</span><span class="sh-stat-key">سهم / صوت</span></div>
+          <div class="sh-stat"><span class="sh-stat-val">100,000</span><span class="sh-stat-key">ريال</span></div>
+          <div class="sh-stat"><span class="sh-stat-val pct-big">10%</span><span class="sh-stat-key">ملكية</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="ownership-chart-wrap">
+      <h3 class="chart-title">توزيع الحصص والتصويت بين الشركاء</h3>
+      <div class="ownership-chart">
+        <svg viewBox="0 0 200 200" class="donut-chart">
+          <circle cx="100" cy="100" r="80" fill="none" stroke="#181822" stroke-width="26"/>
+          <circle cx="100" cy="100" r="80" fill="none" stroke="url(#pGrad1)" stroke-width="26" stroke-dasharray="150.72 351.68" stroke-dashoffset="0"/>
+          <circle cx="100" cy="100" r="80" fill="none" stroke="url(#pGrad2)" stroke-width="26" stroke-dasharray="125.60 376.80" stroke-dashoffset="-150.72"/>
+          <circle cx="100" cy="100" r="80" fill="none" stroke="url(#pGrad3)" stroke-width="26" stroke-dasharray="100.48 401.92" stroke-dashoffset="-276.32"/>
+          <circle cx="100" cy="100" r="80" fill="none" stroke="url(#pGrad4)" stroke-width="26" stroke-dasharray="75.36 427.04" stroke-dashoffset="-376.80"/>
+          <circle cx="100" cy="100" r="80" fill="none" stroke="url(#pGrad5)" stroke-width="26" stroke-dasharray="50.24 452.16" stroke-dashoffset="-452.16"/>
+          <defs>
+            <linearGradient id="pGrad1" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#2997ff"/><stop offset="100%" stop-color="#0071e3"/></linearGradient>
+            <linearGradient id="pGrad2" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#a855f7"/><stop offset="100%" stop-color="#7c3aed"/></linearGradient>
+            <linearGradient id="pGrad3" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#14b8a6"/><stop offset="100%" stop-color="#0d9488"/></linearGradient>
+            <linearGradient id="pGrad4" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#f59e0b"/><stop offset="100%" stop-color="#d97706"/></linearGradient>
+            <linearGradient id="pGrad5" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#ec4899"/><stop offset="100%" stop-color="#db2777"/></linearGradient>
+          </defs>
+          <text x="100" y="93" text-anchor="middle" fill="#86868b" font-size="11" font-family="Cairo">رأس المال</text>
+          <text x="100" y="114" text-anchor="middle" fill="#f5f5f7" font-size="14" font-weight="800" font-family="Cairo">1,000,000</text>
+          <text x="100" y="130" text-anchor="middle" fill="#2997ff" font-size="10" font-family="Cairo">ريال سعودي</text>
+        </svg>
+        <div class="chart-legend">
+          <div class="legend-item"><span class="legend-dot dot-1"></span>محمد الحربي — 30,000 سهم (30%)</div>
+          <div class="legend-item"><span class="legend-dot dot-2"></span>عمر محمد — 25,000 سهم (25%)</div>
+          <div class="legend-item"><span class="legend-dot dot-3"></span>أيمن الحازمي — 20,000 سهم (20%)</div>
+          <div class="legend-item"><span class="legend-dot dot-4"></span>عمر السهلي — 15,000 سهم (15%)</div>
+          <div class="legend-item"><span class="legend-dot dot-5"></span>تميم — 10,000 سهم (10%)</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="governance-section" id="governance">
+    <div class="section-header">
+      <div class="section-tag">الحوكمة</div>
+      <h2 class="section-title">إدارة <span class="gradient-text">شفافة وراسخة</span></h2>
+    </div>
+    <div class="governance-grid">
+      <div class="gov-card"><div class="gov-icon">📋</div><h3>المادة 34 — مراجع الحسابات</h3><p>يعيّن المساهمون مراجع حسابات مرخصًا ويحددون أتعابه ومدة عمله. يجوز إعادة تعيينه وفق اللائحة التنفيذية.</p></div>
+      <div class="gov-card"><div class="gov-icon">💰</div><h3>المادة 36 — السنة المالية</h3><p>تبدأ السنة المالية في أول يناير وتنتهي في نهاية ديسمبر من كل سنة ميلادية.</p></div>
+      <div class="gov-card"><div class="gov-icon">📊</div><h3>المادة 38 — الاحتياطيات</h3><p>يجوز للمساهمين تكوين احتياطيات من صافي الأرباح لضمان استقرار الشركة وتوزيع أرباح ثابتة.</p></div>
+      <div class="gov-card"><div class="gov-icon">⚖️</div><h3>المادة 41 — دعوى المساهم</h3><p>للمساهم رفع دعوى مسؤولية إذا أضر خطأ المدير بالشركة، مع الإبلاغ المسبق بـ14 يومًا.</p></div>
+      <div class="gov-card"><div class="gov-icon">🤝</div><h3>المادة 42 — تسوية المنازعات</h3><p>يجوز الاتفاق على التحكيم أو وسائل بديلة لتسوية المنازعات وفق الأنظمة السعودية.</p></div>
+      <div class="gov-card"><div class="gov-icon">🏛️</div><h3>المادة 43 — انقضاء الشركة</h3><p>تحتفظ الشركة بشخصيتها الاعتبارية أثناء التصفية مع صلاحيات المُصفّي وحقوق الدائنين.</p></div>
+    </div>
+  </section>
+
+  <section class="contact-section" id="contact">
+    <div class="contact-content">
+      <div class="section-tag">تواصل معنا</div>
+      <h2 class="contact-title">ابدأ رحلتك مع <span class="gradient-text">الأفق</span></h2>
+      <p class="contact-desc">هل لديك استفسار؟ فريقنا جاهز دائمًا لمساعدتك.</p>
+      <div class="contact-info">
+        <div class="contact-item"><span class="contact-icon">📍</span><span>الرياض، المملكة العربية السعودية</span></div>
+        <div class="contact-item"><span class="contact-icon">✉️</span><span>info@alhorizon.sa</span></div>
+        <div class="contact-item"><span class="contact-icon">📞</span><span>920-000-000</span></div>
+      </div>
+      <button class="btn-primary contact-btn" onclick="showContactModal()">أرسل رسالة</button>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <svg class="footer-logo-icon" viewBox="0 0 40 40" fill="none">
+          <circle cx="20" cy="20" r="18" stroke="url(#fg)" stroke-width="2"/>
+          <path d="M20 8 L28 16 L24 16 L24 28 L16 28 L16 16 L12 16 Z" fill="url(#fg)"/>
+          <defs><linearGradient id="fg" x1="0" y1="0" x2="40" y2="40" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#4F9EFF"/><stop offset="100%" stop-color="#A855F7"/></linearGradient></defs>
+        </svg>
+        <span>شركة الأفق المتقدمة</span>
+      </div>
+      <div class="footer-links-wrap">
+        <div class="footer-col">
+          <h4>المنتجات</h4>
+          <a href="#products">أفق بوك برو</a>
+          <a href="#products">أفق فون 15</a>
+          <a href="#products">أفق بودز</a>
+          <a href="#products">أفق ووتش</a>
+        </div>
+        <div class="footer-col">
+          <h4>الشركة</h4>
+          <a href="#about">عن الشركة</a>
+          <a href="#shareholders">المساهمون</a>
+          <a href="#governance">الحوكمة</a>
+          <a href="#contact">تواصل معنا</a>
+        </div>
+        <div class="footer-col">
+          <h4>قانوني</h4>
+          <a href="#">النظام الأساسي</a>
+          <a href="#">سياسة الخصوصية</a>
+          <a href="#">الشروط والأحكام</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 شركة الأفق المتقدمة (شركة مساهمة مبسطة) — جميع الحقوق محفوظة | الرياض، المملكة العربية السعودية</p>
+      <p class="footer-legal">مسجلة وفق نظام الشركات السعودي | المرسوم الملكي رقم (م/132)</p>
+    </div>
+  </footer>
+
+  <!-- CHECKOUT & PAYMENT MODAL (Apple Store Checkout Style) -->
+  <div class="modal-overlay" id="checkoutModal" onclick="closeCheckoutModal()">
+    <div class="checkout-modal-box" onclick="event.stopPropagation()">
+      <button class="modal-x" onclick="closeCheckoutModal()">✕</button>
+      
+      <div class="checkout-header">
+        <div class="apple-bag-icon">🛍️</div>
+        <h2>حقيبة الشراء والدفع</h2>
+        <p class="checkout-subtitle">اختر وسيلة الدفع لإتمام طلبك</p>
+      </div>
+
+      <!-- Selected Product Info -->
+      <div class="checkout-product-card">
+        <img src="product_laptop.jpg" alt="" id="checkoutProdImg" class="checkout-prod-img" />
+        <div class="checkout-prod-details">
+          <h3 id="checkoutProdName">اسم المنتج</h3>
+          <p id="checkoutProdDesc">مواصفات وتقنية متطورة</p>
+          <div class="checkout-prod-price" id="checkoutProdPrice">4,999 ريال</div>
+        </div>
+      </div>
+
+      <!-- Payment Methods Section -->
+      <div class="payment-section">
+        <h4 class="payment-title">اختر طريقة الدفع:</h4>
+        
+        <div class="payment-options">
+          
+          <!-- Apple Pay Option -->
+          <div class="pay-option pay-applepay" onclick="handlePaymentSelect('Apple Pay')">
+            <div class="pay-option-content">
+              <span class="pay-icon-apple">Pay</span>
+              <span class="pay-label">الدفع السريع بواسطة Apple Pay</span>
+            </div>
+            <span class="pay-arrow">←</span>
+          </div>
+
+          <!-- Mada Option -->
+          <div class="pay-option" onclick="handlePaymentSelect('بطاقة مدى Mada')">
+            <div class="pay-option-content">
+              <span class="pay-badge mada-badge">مدى</span>
+              <span class="pay-label">بطاقة مدى البنكية</span>
+            </div>
+            <span class="pay-arrow">←</span>
+          </div>
+
+          <!-- Visa / Mastercard Option -->
+          <div class="pay-option" onclick="handlePaymentSelect('البطاقة الائتمانية')">
+            <div class="pay-option-content">
+              <span class="pay-badge cc-badge">💳</span>
+              <span class="pay-label">البطاقة الائتمانية (Visa / MasterCard)</span>
+            </div>
+            <span class="pay-arrow">←</span>
+          </div>
+
+          <!-- Tamara / Tabby Option -->
+          <div class="pay-option" onclick="handlePaymentSelect('تمارا / تابي')">
+            <div class="pay-option-content">
+              <span class="pay-badge tamara-badge">4x</span>
+              <span class="pay-label">قسّمها على 4 دفعات بدون فوائد (تمارا / تابي)</span>
+            </div>
+            <span class="pay-arrow">←</span>
+          </div>
+
+          <!-- STC Pay Option -->
+          <div class="pay-option" onclick="handlePaymentSelect('STC Pay')">
+            <div class="pay-option-content">
+              <span class="pay-badge stc-badge">STC</span>
+              <span class="pay-label">المحفظة الرقمية STC Pay</span>
+            </div>
+            <span class="pay-arrow">←</span>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- In-Modal Notice Banner -->
+      <div class="modal-notice-banner" id="modalNoticeBanner" style="display: none;">
+        <span class="notice-sparkle">✨</span>
+        <div class="notice-inner-text">
+          <strong>هذا عمل مشروع فقط ما تحتاج تشتري 😉</strong>
+          <p>تم إعداد هذا الموقع كنموذج استعراضي لمشروع تأسيس شركة الأفق المتقدمة (شركة مساهمة مبسطة).</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="modal-overlay" id="productModal" onclick="closeProductModal()">
+    <div class="product-modal-box" onclick="event.stopPropagation()">
+      <button class="modal-x" onclick="closeProductModal()">✕</button>
+      <div class="pm-image-wrap">
+        <img src="" alt="" id="pmImage" class="pm-image" />
+      </div>
+      <div class="pm-info">
+        <div class="pm-tag" id="pmTag"></div>
+        <h2 class="pm-title" id="pmTitle"></h2>
+        <p class="pm-desc" id="pmDesc"></p>
+        <div class="pm-specs-list" id="pmSpecs"></div>
+        <div class="pm-price" id="pmPrice"></div>
+        <button class="btn-buy pm-buy-btn" id="pmBuyBtn">اشترِ الآن 🛒</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal-overlay" id="contactModal" onclick="closeContactModal()">
+    <div class="modal-box contact-modal-box" onclick="event.stopPropagation()">
+      <button class="modal-x" onclick="closeContactModal()">✕</button>
+      <h2 class="modal-title">تواصل معنا</h2>
+      <form class="contact-form" onsubmit="submitContact(event)">
+        <div class="form-group">
+          <label>الاسم الكامل</label>
+          <input type="text" id="contactName" placeholder="أدخل اسمك الكامل" required />
+        </div>
+        <div class="form-group">
+          <label>البريد الإلكتروني</label>
+          <input type="email" id="contactEmail" placeholder="example@email.com" required />
+        </div>
+        <div class="form-group">
+          <label>الرسالة</label>
+          <textarea id="contactMsg" placeholder="اكتب رسالتك هنا..." rows="4" required></textarea>
+        </div>
+        <button type="submit" class="btn-primary" style="width:100%">إرسال الرسالة ←</button>
+      </form>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
